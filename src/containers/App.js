@@ -61,6 +61,19 @@ class App extends Component {
     persons.splice(personIndex, 1);
     this.setState({persons: persons})
   }
+
+  shouldComponentUpdate(nextProps,nextState) {
+    console.log('[update app.js] inside shouldComponentUpdate', nextProps, nextState);
+    return true;
+  }
+
+  componentWillUpdate(nextProps,nextState) {
+    console.log('[update app.js] inside componentWillUpdate', nextProps, nextState);
+  }
+
+  componentDidUpdate() {
+    console.log('[update app.js] inside componentDidUpdate');
+  }
    
   render() {
     console.log('inside render()')
@@ -76,10 +89,11 @@ class App extends Component {
 
     return (
       <div className={classes.App}>
-      <Cockpit 
-        showPersons={this.state.showPersons}
-        persons={this.state.persons}
-        clicked={this.togglePersonsHandler}/>
+        <button onClick={() => {this.setState({showPersons: true})}}>Show Persons</button>
+        <Cockpit 
+          showPersons={this.state.showPersons}
+          persons={this.state.persons}
+          clicked={this.togglePersonsHandler}/>
       {persons}
       </div>
     );

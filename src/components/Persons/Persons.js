@@ -28,8 +28,8 @@ class Persons extends Component {
     console.log('[update Persons.js] inside componentWillUpdate', nextProps, nextState);
   }
 
-  componentDidUpdate(nextProps,nextState) {
-    console.log('[update Persons.js] inside componentDidUpdate', nextProps, nextState);
+  componentDidUpdate() {
+    console.log('[update Persons.js] inside componentDidUpdate');
   }
 
   render() {
